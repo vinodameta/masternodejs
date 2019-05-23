@@ -6,6 +6,7 @@ WORKDIR /home/node/app
 
 # Install server dependencies
 COPY /express-image/package.json /home/node/app
+COPY /express-image/resolve /etc/resolve.conf
 RUN npm install --loglevel verbose
 
 # Copy node Application
