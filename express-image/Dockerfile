@@ -6,8 +6,10 @@ WORKDIR /home/node/app
 
 # Install server dependencies
 COPY /express-image/package.json /home/node/app
-COPY /express-image/resolve /etc/docker/daemon.json
-COPY /express-image/resolve1 /etc/hosts
+npm config set proxy http://user:password@proxy.example.com:8181
+npm config set https-proxy http://user:password@proxy.example.com:8181
+#COPY /express-image/resolve /etc/docker/daemon.json
+#COPY /express-image/resolve1 /etc/hosts
 RUN npm install --loglevel verbose
 # Copy node Application
 COPY app.js /home/node/app
