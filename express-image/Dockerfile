@@ -6,6 +6,7 @@ WORKDIR /home/node/app
 
 # Install server dependencies
 COPY /express-image/package.json /home/node/app
+RUN npm cache clean --force
 RUN npm install
 
 # Copy node Application
